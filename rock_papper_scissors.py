@@ -1,6 +1,4 @@
 import random
-import os
-os.system('color')
 
 
 def colored(r, g, b, text):
@@ -11,8 +9,10 @@ rock = 'Rock'
 paper = 'Paper'
 scissors = 'Scissors'
 quit_program = 'Quit'
+my_pts = 0
+computer_pts = 0
 
-player_move = input('Choose [R]ock, [P]aper, [S]cissors, [Q]uit: ')
+player_move = input('Choose [R]ock, [P]aper, [S]cissors or [Q]uit: ')
 
 while player_move != 'Quit':
 
@@ -48,9 +48,11 @@ while player_move != 'Quit':
         print(colored(0, 128, 255, 'Draw'))
     elif ((player_move == rock and computer_move == scissors) or (player_move == paper and computer_move == rock) or
           (player_move == scissors and computer_move == paper)):
+        my_pts += 1
         print(colored(0, 255, 0, 'You win!'))
     else:
         print(colored(255, 0, 0, 'You lose!'))
-
+        computer_pts += 1
     print()
+    print(colored(238, 130, 238, f'Score: You {my_pts} - PC {computer_pts}'))
     player_move = input('Choose [R]ock, [P]aper, [S]cissors, [Q]uit: ')
